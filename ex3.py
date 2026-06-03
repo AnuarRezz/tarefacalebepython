@@ -6,3 +6,22 @@
 # Tarefa: Identifique as regras do problema, solicite os dados necessá rios ao usuá rio e
 # desenvolva um algoritmo em Python para determinar o resultado.
 print("3. Aprovação de Crédito")
+
+cadastro_previo = input("O cliente possui cadastro prévio? (s/n): ") == 's'
+
+if not cadastro_previo:
+    print("Resultado: Análise não pode ser feita. Necessário realizar o cadastro do cliente primeiro.")
+else:
+    parcelas_atraso = input("O cliente possui parcelas em atraso? (s/n): ") == 's'
+    restricoes = input("O cliente possui restrições financeiras? (s/n): ") == 's'
+    
+    if parcelas_atraso or restricoes:
+        print("Resultado: Crédito Negado. Cliente possui parcelas em atraso ou restrições financeiras.")
+    else:
+        renda = float(input("Qual a renda do cliente? R$ "))
+        tempo_banco = int(input("Qual o tempo de relacionamento com o banco (em anos)?: "))
+        
+        if renda > 3000 or tempo_banco > 5:
+            print("Resultado: Crédito Aprovado!")
+        else:
+            print("Resultado: Crédito Negado. Renda insuficiente e tempo de relacionamento menor que 5 anos.")
